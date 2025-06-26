@@ -17,6 +17,31 @@ p {
   margin: 0;
 }
 
+button, input {
+  font-family: inherit;
+  color: inherit;
+  
+  padding: 8px;
+  margin: 8px;
+  
+  background-color: #555555;
+  border: 2px solid #666666;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #666666;
+  border: 2px solid #777777;
+}
+
+hr {
+  border: 2px solid #444444;
+}
+
+.centered-text {
+  text-align: center;
+}
+
 .main-container {
   width: 600px;
   margin: 0 auto;
@@ -29,4 +54,23 @@ p {
   border: 2px solid #444444;
   border-radius: 4px;
   box-shadow: 0 0 8px #ffffff20;
+}
+
+/* .upload-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  padding: 16px;
+  
+  border: 2px dashed #555555;
+  border-radius: 4px;
+  background-color: #444444;
+} */
+
+.centered-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }

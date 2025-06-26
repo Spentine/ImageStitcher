@@ -7,12 +7,28 @@
   <body>
     <div class="main-container">
       <div class="content-container">
-        <h1> Image Stitcher </h1>
-        <p> Upload images to stitch them together. </p>
-        <div class="upload-container">
-          
+        <h1 class="centered-text"> Image Stitcher </h1>
+        <p class="centered-text"> Upload images to stitch them together. </p>
+      </div>
+      
+      <div class="content-container">
+        <h2 class="centered-text"> Upload Images </h2>
+        <br>
+        <div class="centered-container">
+          <div class="upload-container">
+            <!-- just use a simple file input for now -->
+            <input type="file" id="imageInput" accept="image/*" multiple>
+          </div>
+          <button id="stitchButton"> Stitch Images </button>
         </div>
       </div>
+      
+      <div class="content-container">
+        <h2 class="centered-text"> Output </h2>
+        <hr>
+        <div id="outputContainer" class="output-container">
+          <!-- stitched image will be displayed here -->
+        </div>
     </div>
   </body>
 </html>

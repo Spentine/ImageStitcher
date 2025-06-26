@@ -5,3 +5,11 @@ This image stitcher should primarily be used to stitch chat messages. I'm not qu
 ## UI
 
 The UI should be quite simplistic in terms of content. It should be in a vertical format, probably taking up about 600 to 800 pixels of horizontal space. It should make file uploading as easy as possible (including pasting, dragging, and plain uploading). It should automatically figure out the order of the images.
+
+There will be an option to either have it only check for vertical adjustments.
+
+## Algorithm
+
+First, discard anything that may make it difficult to analyze. For example, headers or footers may obscure the image. To do this, use a difference mapping between all of the images. If some parts are pretty much exactly the same, discard them.
+
+To check whether two images line up, perform a convolution on the images to see where they line up the most. Then, perform another convolution to only retrieve answers where it's only a single point that contains the answer.
