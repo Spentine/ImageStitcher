@@ -26,9 +26,9 @@ class ImageStitcherUI {
     this.imageInput = document.getElementById("imageInput");
     this.step1Button = document.getElementById("step1Button");
     this.outputContainer = document.getElementById("outputContainer");
-    this.cropCanvas = document.getElementById("cropCanvas");
+    this.cropArea = document.getElementById("cropArea");
     
-    this.cc = new CropCanvas(this.cropCanvas);
+    this.cc = new CropCanvas(this.cropArea);
     
     this.addInteractivity();
   }

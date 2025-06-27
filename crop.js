@@ -1,7 +1,11 @@
 class CropCanvas {
-  constructor(canvas) {
-    this.canvas = canvas;
-    this.ctx = canvas.getContext("2d");
+  constructor(cropArea, canvas) {
+    this.cropArea = cropArea;
+    
+    this.canvas = document.createElement("canvas");
+    this.ctx = this.canvas.getContext("2d");
+    this.cropArea.appendChild(this.canvas);
+    
     this.images = [];
     this.crop = {
       top: 0,
@@ -42,6 +46,25 @@ class CropCanvas {
     }
   }
   
+  renderImage() {
+    const image = this.images[0]; // for now, just render the first image
+    
+    const resizeFactor = Math.min(
+      this.canvas.width / image.width,
+      this.canvas.height / image.height
+    );
+    
+    const width = image.width * resizeFactor;
+    const height = image.height * resizeFactor;
+    
+    // render image
+    this.ctx.drawImage(image, 0, 0, image.width, image.height, 
+      (this.canvas.width - width) / 2,
+      (this.canvas.height - height) / 2,
+      width, height
+    );
+  }
+  
   renderLoop() {
     script: {
       this.canvasBackground();
@@ -55,6 +78,7 @@ class CropCanvas {
         this.ctx.fillText(text, this.canvas.width / 2, this.canvas.height / 2);
         break script;
       }
+      this.renderImage();
     }
     window.requestAnimationFrame(this.renderLoop.bind(this));
   }

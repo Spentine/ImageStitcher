@@ -76,6 +76,6 @@ hr {
   justify-content: center;
 }
 
-#cropCanvas {
+canvas {
   width: 100%;
 }
