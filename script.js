@@ -1,6 +1,9 @@
 import {
   stitchImages,
 } from "./stitcher.js";
+import {
+  CropCanvas,
+} from "./crop.js";
 
 /**
  * convert a fileList into an array of image objects
@@ -18,29 +21,41 @@ async function getImageArray(fileList) {
   return imageArray;
 }
 
-function main() {
-  const imageInput = document.getElementById("imageInput");
-  const stitchButton = document.getElementById("stitchButton");
-  const outputContainer = document.getElementById("outputContainer");
-  
-  stitchButton.addEventListener("click", async () => {
-    const fileList = imageInput.files;
+class ImageStitcherUI {
+  constructor() {
+    this.imageInput = document.getElementById("imageInput");
+    this.step1Button = document.getElementById("step1Button");
+    this.outputContainer = document.getElementById("outputContainer");
+    this.cropCanvas = document.getElementById("cropCanvas");
     
-    if (fileList.length === 0) {
-      alert("Please upload at least one image.");
+    this.cc = new CropCanvas(this.cropCanvas);
+    
+    this.addInteractivity();
+  }
+  
+  addInteractivity() {
+    this.step1Button.addEventListener("click", this.step1.bind(this));
+  }
+  
+  async step1() {
+    const images = this.imageInput.files;
+    
+    // check images length
+    if (images.length === 0) {
+      alert("Please select at least one image.");
       return;
     }
     
-    const images = await getImageArray(fileList);
-    const stitched = await stitchImages(images);
+    // convert fileList to array of images
+    const imageArray = await getImageArray(images);
     
-    // clear previous output
-    while (outputContainer.firstChild) {
-      outputContainer.removeChild(outputContainer.firstChild);
-    }
-    
-    outputContainer.appendChild(stitched);
-  });
+    // crop canvas
+    this.cc.loadImages(imageArray);
+  }
+}
+
+function main() {
+  const ui = new ImageStitcherUI();
 }
 
 if (document.readyState === "loading") {

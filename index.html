@@ -19,8 +19,18 @@
             <!-- just use a simple file input for now -->
             <input type="file" id="imageInput" accept="image/*" multiple>
           </div>
-          <button id="stitchButton"> Stitch Images </button>
+          <button id="step1Button"> Continue </button>
         </div>
+      </div>
+      
+      <div class="content-container">
+        <h2 class="centered-text"> Crop Images </h2>
+        <p class="centered-text"> Only works when all images are of the same dimensions. </p>
+        <br>
+        
+        <canvas id="cropCanvas">
+          
+        </canvas>
       </div>
       
       <div class="content-container">

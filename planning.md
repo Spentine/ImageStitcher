@@ -6,6 +6,10 @@ This image stitcher should primarily be used to stitch chat messages. I'm not qu
 
 The UI should be quite simplistic in terms of content. It should be in a vertical format, probably taking up about 600 to 800 pixels of horizontal space. It should make file uploading as easy as possible (including pasting, dragging, and plain uploading). It should automatically figure out the order of the images.
 
+### Additional Things
+
+Ok, so turns out I really just to just work on the core functionality. I'll lean more into the UI part and have the user do some stuff while my program will handle the bulk of the effort. Alright, so the first thing I'll do is to create a UI that will allow the user to bulk rescale the images to remove anything that may interfere.
+
 There will be an option to either have it only check for vertical adjustments.
 
 ## Algorithm

@@ -43,8 +43,9 @@ hr {
 }
 
 .main-container {
-  width: 600px;
+  max-width: 600px;
   margin: 0 auto;
+  padding: 0 16px;
 }
 
 .content-container {
@@ -73,4 +74,8 @@ hr {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+
+#cropCanvas {
+  width: 100%;
 }
